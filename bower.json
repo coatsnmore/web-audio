@@ -1,0 +1,11 @@
+{
+  "name": "web-audio",
+  "private": true,
+  "dependencies": {
+    "skeleton": "~2.0.4"
+  },
+  "devDependencies": {
+    "chai": "~3.3.0",
+    "mocha": "~2.3.3"
+  }
+}
