@@ -24,7 +24,7 @@ export default class BufferLoader {
         request.response,
         function(buffer) {
           if (!buffer) {
-            // alert('error decoding file data: ' + url);
+            console.error('error decoding file data: ' + url);
             return;
           }
           loader.bufferList[index] = buffer;
@@ -39,7 +39,7 @@ export default class BufferLoader {
     };
 
     request.onerror = function() {
-      // alert('BufferLoader: XHR error');
+      console.error('BufferLoader: XHR error');
     };
 
     request.send();

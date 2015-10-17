@@ -17,7 +17,7 @@ gulp.task('eslint', function() {
         .pipe(reload({stream: true, once: true}))
         /* Outputs hinting to console */
         .pipe($.eslint.format())
-				//.pipe($.if(!browserSync.active, $.eslint.failOnError()))
+				.pipe($.if(!browserSync.active, $.eslint.failOnError()))
 });
 
 

@@ -1,6 +1,7 @@
 'use strict';
 
 import BufferLoader from './BufferLoader';
+import Synth from './Synth';
 
 window.onload = init;
 var context;
@@ -16,6 +17,8 @@ function init() {
   if (contextClass) {
     // Web Audio API is available.
     context = new contextClass();
+  } else {
+    console.error('Browser does not support AudioContext, uh oh!');
   }
 
   bufferLoader = new BufferLoader(
@@ -30,11 +33,9 @@ function init() {
 
 function finishedLoading(bufferList) {
   masterBuffer = bufferList;
-  // play(bufferList);
-  play();
 }
 
-function play(){
+function playKick() {
   let source = context.createBufferSource();
   source.buffer = masterBuffer[0];
 
@@ -43,8 +44,22 @@ function play(){
   gainNode.gain.value = 0.3;
   source.connect(gainNode);
   gainNode.connect(context.destination);
-  // source1.loop = true;
   source.start(0);
-};
+}
 
-window.playWebAudio = play;
+function playSynthSong() {
+
+  let synth = new Synth(context),
+    B = 493.883,
+    E = 659.255,
+    A = 880.00,
+    duration = 0.5,
+    startTime = context.currentTime;
+
+  synth.play(B, startTime, duration);
+  synth.play(E, startTime + duration, duration);
+  synth.play(A, startTime + duration * 2, duration);
+}
+
+window.playKick = playKick;
+window.playSynth = playSynthSong;
