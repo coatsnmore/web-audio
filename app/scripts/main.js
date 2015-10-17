@@ -50,15 +50,14 @@ function playKick() {
 function playSynthSong() {
 
   let synth = new Synth(context),
-    B = 493.883,
-    E = 659.255,
-    A = 880.00,
     duration = 0.5,
     startTime = context.currentTime;
 
-  synth.play(B, startTime, duration);
-  synth.play(E, startTime + duration, duration);
-  synth.play(A, startTime + duration * 2, duration);
+  let song = ['G3', 'A#3/Bb3', 'D#4/Eb4', 'G3', 'A#3/Bb3', 'G#3/Ab3', 'G3'];
+
+  for (var i = 0; i < song.length; i++) {
+    synth.play(song[i], startTime + duration * i, duration);
+  }
 }
 
 window.playKick = playKick;

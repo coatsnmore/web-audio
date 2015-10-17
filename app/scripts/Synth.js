@@ -1,16 +1,22 @@
 'use strict';
 
+import {
+  notes as Notes
+}
+from './Notes.js';
+
 export default class Synth {
 
   constructor(context) {
     this.context = context;
   }
 
-  play(frequency, startTime, duration) {
+  play(note, startTime, duration) {
     let context = this.context,
       osc1 = context.createOscillator(),
       osc2 = context.createOscillator(),
-      volume = context.createGain();
+      volume = context.createGain(),
+      frequency = Notes[note];
 
     volume.gain.value = 0.1;
 
