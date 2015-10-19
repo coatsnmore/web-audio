@@ -2,7 +2,9 @@
   "name": "web-audio",
   "private": true,
   "dependencies": {
-    "skeleton": "~2.0.4"
+    "skeleton": "~2.0.4",
+    "angular": "1.4.7",
+    "angular-ui-router": "~0.2.15"
   },
   "devDependencies": {
     "chai": "~3.3.0",

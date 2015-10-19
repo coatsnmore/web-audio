@@ -11,7 +11,7 @@ export default class Synth {
     this.context = context;
   }
 
-  play(note, startTime, duration) {
+  play(note, startTime, duration, type) {
     let context = this.context,
       osc1 = context.createOscillator(),
       osc2 = context.createOscillator(),
@@ -21,8 +21,8 @@ export default class Synth {
     volume.gain.value = 0.1;
 
     // Set oscillator wave type
-    osc1.type = 'triangle';
-    osc2.type = 'triangle';
+    osc1.type = type;
+    osc2.type = type;
 
     // tune
     osc1.frequency.value = frequency;
