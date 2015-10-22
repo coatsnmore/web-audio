@@ -180,7 +180,7 @@ gulp.task('serve', ['produce'], function() {
   gulp.watch('app/styles/**/*.less', ['styles']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
-  gulp.watch('app/scripts/**/*.js', ['src']);
+  gulp.watch('app/scripts/**/*.js', ['processSource']);
 });
 
 gulp.task('serve:dist', ['package'], function() {
